@@ -1,0 +1,17 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #080d27;
+  }
+
+  body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .page__wrapper{
+    position: relative;
+    width: 100%;
+  }

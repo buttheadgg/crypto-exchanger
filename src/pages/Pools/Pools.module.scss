@@ -1,0 +1,18 @@
+.main__pools {
+    background-color: #080d27;
+    padding-top: 100px;
+  }
+
+  .main__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 110px;
+  }
+
+  @media(max-width: 450px) {
+    .main__pools {
+      padding-top: 30px;
+    }
+  }

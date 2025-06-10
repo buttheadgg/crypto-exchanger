@@ -1,0 +1,141 @@
+@import url("../../../styles/_fonts.scss");
+
+.form__body {
+  padding: 0px 24px 0px 24px;
+}
+
+.form__bodyWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__pay {
+  padding-top: 24px;
+}
+
+.form__payInput {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 340px;
+}
+
+.form__payInputLable {
+  margin-left: 15px;
+  width: 100%;
+}
+
+.form__payInputTelegram {
+  width: 340px;
+  border: none;
+}
+
+.form__receiveInputWrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.form__receiveInput {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form__receiveInputLable {
+  margin-left: 15px;
+}
+
+.form__inputCountry {
+  width: 158px;
+  border: none;
+}
+
+.form__inputCity {
+  width: 158px;
+  border: none;
+}
+
+.form__receiveCheckbox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.remember__data {
+  display: flex;
+  gap: 8px;
+}
+
+.agree__rules {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.form__checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.form__checkbox:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.form__checkboxText {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 400;
+  color: #eaedff;
+  line-height: 16px;
+}
+
+.rulesLink {
+  text-decoration: underline;
+}
+
+.form__warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 728px;
+  width: 100%;
+  height: 100px;
+  margin-top: 38px;
+  margin-bottom: 44px;
+  border-radius: 14px;
+  border: 1px solid #253575;
+  background-color: rgba(27, 39, 90, 0.2);
+}
+
+.form__warningText {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #c8ea80;
+  text-align: center;
+}

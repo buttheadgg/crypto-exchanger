@@ -1,0 +1,557 @@
+.window__wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 40px;
+  border: 1px solid #334679;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  position: relative;
+}
+
+.modal__widowClose{
+  position: absolute;
+  top: 1%;
+  left: 92%;
+  width: 30px;
+  cursor: pointer;
+  z-index: 11111;
+}
+
+.window__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  height: 80px;
+}
+
+.window__body {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 26px;
+  gap: 24px;
+}
+
+.window__subscribe {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #2ef2ff;
+}
+
+.window__line {
+  content: "";
+  position: relative;
+  width: 2px;
+  height: 100%;
+  background-color: #0c1838;
+}
+
+.window__lineInside {
+  position: absolute;
+  height: 11px;
+  width: 2px;
+  background: #2ef2ff;
+  top: 50%;
+}
+
+.window__productRules {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+
+.window__bottomLine {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: #0c1838;
+  top: 100%;
+}
+
+.duration__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.wrapper__durationElem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 14px;
+  border: 1px solid rgba(46, 242, 255, 0.5);
+  height: 70px;
+  width: 132px;
+  padding: 10px;
+}
+
+.wrapper__durationTitle {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+.wrapper__durationProcent {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c8ea80;
+}
+
+.wrapper__durationImg {
+  position: absolute;
+  right: 10%;
+}
+
+.wrapper__durationImg img{
+  width: 24px;
+  height: 24px;
+}
+
+.amount__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.amount__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount__checkbox {
+  display: flex;
+  gap: 8px;
+}
+
+.amount__checkbox1 {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color:rgba(255, 255, 255, 0.04);
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.amount__checkbox1:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.amount__text {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+.durations__checkboxText {
+  display: flex;
+  justify-content: start;
+  font-family: "Popins";
+  font-size: 12px;
+  font-weight: 500;
+  color: #eaedff;
+}
+
+.amount__inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.amount__input {
+  width: 100%;
+  border-radius: 14px;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 16px;
+  position: relative;
+}
+
+.amount__inputImg img {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*.amount__inputButton {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  border: 1px solid #2ef2ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: transparent;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+  cursor: pointer;
+}*/
+
+.amount__inputButton {
+  display: none;
+}
+
+.summaty__lockedWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.available__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summaty__lockedValue {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c8ea80;
+}
+
+.summaty__lockedText {
+  display: flex;
+  gap: 5px;
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+/*.available__wrapperHead {
+  display: flex;
+  gap: 17px;
+}*/
+
+.available__wrapperHead {
+  display: none;
+}
+
+.available__text {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.available__spot {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.personal {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.personal__text {
+  // text-decoration: underline;
+}
+
+.summary_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary__title {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+
+.summary__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary__leftText {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.summary__rightText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary__textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary__discrib {
+  display: flex;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary__discribRules {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c8ea80;
+}
+
+.summary__sub {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.summary__rightText {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.remarks__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Popins";
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(196, 203, 245, 0.4);
+}
+
+.checkbox__agreeAndRead {
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.durations__checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.durations__checkbox:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.durations__checkboxText {
+  display: flex;
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 500;
+  color: #eaedff;
+  line-height: 16px;
+  gap: 3px;
+}
+
+.durations__checkboxTextRules {
+  color: #c8ea80;
+}
+.durations__checkboxTextConditions {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 500;
+  color: #c8ea80;
+}
+
+.window__buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.window__button {
+  box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
+}
+
+.selectedPeriod {
+  border: 1px solid rgba(46, 242, 255, 1);
+}
+
+.durations__checkboxTextWrapperMob {
+  display: none;
+}
+
+.personal__graph{
+
+}
+
+@media (max-width: 1217px) {
+  .durations__checkboxTextWrapper {
+    display: none;
+  }
+  .durations__checkboxTextWrapperMob {
+    display: flex;
+    flex-direction: column;
+    font-family: "Popins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .durations__checkboxTextWrapperMob span {
+    font-family: "Popins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #c8ea80;
+  }
+}
+
+@media (max-width: 1200px) {
+  .window__wrapper {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 1062px) {
+  .window__bottomLine {
+  }
+}
+
+@media (max-width: 625px) {
+  .window__wrapper {
+    min-width: 550px;
+  }
+}
+
+@media (max-width: 600px) {
+  .durations__checkbox {
+    width: 18px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 571px) {
+  .window__wrapper {
+    min-width: 500px;
+  }
+  .personal__graph{
+    top: 59%;
+  }
+  .personal__graph img{
+    max-width: 450px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 519px) {
+  .window__wrapper {
+    min-width: 450px;
+  }
+  .available__wrapperHead {
+    flex-direction: column;
+    gap: 5px;
+  }
+  // .summary__rightText {
+  //   position: absolute;
+  //   font-size: 14px;
+  //   top: 36%;
+  //   left: 6%;
+  // }
+  .disc__data{
+    position: absolute;
+    font-size: 14px;
+    top: 92%;
+    left: 7%;
+  }
+  .sub__data{
+    position: absolute;
+    font-size: 14px;
+    top: 27%;
+    left: 7%;
+  }
+  .summary__discribRules{
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .summary__body{
+    gap: 15px;
+    position: relative;
+  }
+  .summary__discrib{
+    gap: 60px;
+  }
+  .summary__textWrapper{
+    gap: 17px;
+  }
+}
+
+@media (max-width: 465px) {
+  .window__wrapper {
+    min-width: 400px;
+  }
+  .window__line{
+    margin-left: 30px;
+  }
+  .duration__wrapper{
+    margin-left: 35px;
+  }
+}
+
+@media (max-width: 419px) {
+  .window__wrapper {
+    width: 300px;
+  }
+}
+
+@media (max-width: 391px) {
+  .window__wrapper {
+    min-width: 380px;
+  }
+  .duration__wrapper{
+    margin-left: 25px;
+  }
+}

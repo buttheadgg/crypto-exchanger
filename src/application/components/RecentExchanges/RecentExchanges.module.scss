@@ -1,0 +1,581 @@
+@import url("../../styles/_fonts.scss");
+
+.recentExchanges__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1061px;
+  width: 100%;
+  gap: 28px;
+}
+
+.recentExchanges__wrapperNone {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1061px;
+  width: 100%;
+  gap: 28px;
+}
+
+.recentExchangesText {
+  font-family: "Popins";
+  font-size: 48px;
+  font-weight: 700;
+  color: #eaedff;
+}
+
+.recentExchanges__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 48px;
+  border-radius: 16px;
+  border: 1px solid #334679;
+  background: linear-gradient(180deg, #000000 0%, #0f1431 95.83%);
+}
+
+.recentExchanges__headerStat {
+  display: flex;
+  gap: 8px;
+}
+
+.headerStat__countVolume {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.headerStat__count {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #334679;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+}
+
+.headerStat__leftData {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headerStat__rightData {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headerStat__volume {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #334679;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+}
+
+.headerStat__name {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #eaedff;
+}
+
+.headerStat__totalValue {
+  font-family: "Popins";
+  font-size: 24px;
+  font-weight: 700;
+  color: #eaedff;
+}
+
+.headerStat__total {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.headerStat__more {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(234, 237, 255, 0.45);
+  text-align: end;
+  height: 20px;
+}
+
+.headerStat__yesterdayValue {
+  font-family: "Popins";
+  font-size: 24px;
+  font-weight: 700;
+  color: #c8ea80;
+}
+
+.headerStat__yesterday {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.headerStat__dailyDistribution {
+  position: relative;
+  width: 100%;
+}
+
+.headerStat__dailyDistributionDiagram{
+  position: absolute;
+  z-index: 4;
+  left: 11%;
+  top: -22%;
+}
+
+.headerStat__dailyDistribution img {
+  width: 100%;
+  max-width: 531px;
+}
+
+.recentExchanges__sortLine {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  width: 100%;
+  border-radius: 16px;
+  background: rgba(217, 217, 217, 0.05);
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+  margin-top: 20px;
+}
+
+.sortLine__pay{
+  width: 100px;
+  text-align: start;
+}
+
+.sortLine__receive{
+  width: 100px;
+  text-align: end;
+}
+
+.sortLine__txHash{
+  width: 100px;
+  text-align: end;
+}
+
+.sortLine__date{
+  width: 100px;
+  padding-left: 15px;
+}
+
+.recentExchanges__dataInformationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.dataInformation__arrow {
+  position: absolute;
+  left: 27%;
+}
+
+.cryptoWrapper__img img {
+  width: 24px;
+  height: 24px;
+}
+
+.recentExchanges__dataInformation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  border: 1px solid #172662;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.dataInformation__name {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.dataInformation__wrapper {
+  display: flex;
+  align-items: start;
+  width: 250px;
+  gap: 10px;
+}
+
+.dataInformation__img {
+  display: flex;
+  align-items: center;
+}
+
+.dataInformation__img img {
+  width: 24px;
+  height: 24px;
+}
+
+.dataInformation__value {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.dataInformation__cryptoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: start;
+  width: 200px;
+  gap: 10px;
+}
+
+.cryptoWrapper__cryptoNameWrapepr {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cryptoWrapper__cryptoName {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.cryptoWrapper__cryptoSecName {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+.cryptoWrapper__value {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+  width: 100px;
+}
+
+.dataInformation__txHashWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.xHashWrapper__image {
+  max-width: 109px;
+}
+
+.txHashWrapper__value {
+  display: flex;
+  align-items: center;
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+  text-align: start;
+  width: 150px;
+}
+
+.recentExchanges__ImgCountryMob img{
+  width: 32px;
+  height: 32px;
+}
+
+.recentExchanges__ImgCoinMob img{
+  width: 32px;
+  height: 32px;
+}
+
+.dataInformation__time {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+  width: 80px;
+  white-space: wrap;
+}
+
+.recentExchanges__steps {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.steps__itemsWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.steps__item {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 12px 16px;
+}
+
+.steps__select {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.recentExchanges__dataInformationMob {
+  display: none;
+}
+
+.recentExchanges__TimeMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #c4cbf5;
+  margin-left: auto;
+}
+
+.recentExchanges__PayMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+}
+
+.recentExchanges__CountryTextMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.recentExchanges__CountryValueMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.recentExchanges__wrapperCountryMob {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 20px;
+}
+
+.recentExchanges__wrapperCountryMob1 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.recentExchanges__wrapperCoinMob1 {
+  display: flex;
+  gap: 10px;
+}
+
+.dataInformation__arrowMob img {
+  transform: rotate(90deg);
+  position: absolute;
+  left: 50%;
+}
+
+.recentExchanges__ReceiveMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+}
+
+.recentExchanges__wrapperCoinMob {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.recentExchanges__CoinWrapperMob {
+  font-family: "Gilroy";
+  color: #c4cbf5;
+}
+
+.recentExchanges__CoinTextMob {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.recentExchanges__CoinNameMob {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recentExchanges__CoinValueMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.recentExchanges__dataInformationMobWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  align-items: left;
+  gap: 20px;
+}
+
+.recentExchanges__wrapeprHashMob {
+  display: flex;
+  gap: 7px;
+}
+
+.recentExchanges__txHashMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+  margin-right: auto;
+}
+
+.recentExchanges__HashTextMob {
+  font-family: "Gilroy";
+  color: #c4cbf5;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recentExchanges__dataInformationMobButton {
+  display: none;
+}
+
+.headerStat__dailyDistributionImgPhone {
+  display: none;
+}
+
+
+@media (max-width: 833px) {
+  .headerStat__dailyDistributionDiagram{
+    left: -12%;
+    top: -20%;
+  }
+  .recentExchanges__headerStat {
+    flex-direction: column;
+  }
+
+  .headerStat__count {
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+  }
+
+  .headerStat__volume {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  .headerStat__more {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+  }
+
+  .headerStat__dailyDistribution {
+    order: 1;
+  }
+
+  .headerStat__dailyDistributionImgPhone {
+    display: flex;
+  }
+
+  .headerStat__dailyDistributionImg {
+    display: none;
+  }
+
+  .headerStat__countVolume {
+    order: 2;
+  }
+}
+
+
+@media (max-width: 780px) {
+  .recentExchanges__sortLine {
+    display: none;
+  }
+
+  .recentExchanges__dataInformation {
+    display: none;
+  }
+
+  .recentExchanges__dataInformationMob {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(180deg,
+        rgba(27, 39, 90, 0.2) 0%,
+        rgba(15, 21, 53, 0.2) 100%);
+    border-radius: 16px;
+    border: 1px solid #253575;
+    padding: 10px;
+  }
+
+  .recentExchanges__dataInformationMobButton {
+    display: flex;
+    width: 100%;
+    max-width: 179px;
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 580px) {
+  .recentExchanges__sortLine {
+    display: none;
+  }
+
+  .recentExchanges__box {
+    padding: 5px 5px;
+    width: 350px;
+  }
+
+  .recentExchanges__wrapper {
+    padding: 0 20px;
+  }
+
+  .headerStat__leftData {
+    gap: 0px;
+    margin-right: auto;
+  }
+
+  .headerStat__rightData {
+    gap: 0px;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 530px) {
+  .recentExchangesText {
+    padding-left: 15px;
+    font-family: "Popins";
+    font-size: 32px;
+    font-weight: 700;
+    color: #eaedff;
+  }
+}

@@ -1,0 +1,269 @@
+@import url("../../../styles/_fonts.scss");
+
+.modal__window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 600px;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  border: 3px solid #334679;
+  border-radius: 40px;
+  gap: 24px;
+}
+
+.modal__widowClose{
+  position: absolute;
+  top: 2%;
+  left: 85%;
+  width: 30px;
+}
+
+.modal__windowWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 38px 18px 40px;
+  gap: 16px;
+}
+
+.modal__howToPlay {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.modal__canceled {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #c8ea80;
+}
+
+.modal__application {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  text-align: center;
+}
+
+.modal__amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 468px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 12px 16px;
+  background-color: #080d27;
+}
+
+.amount__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  white-space: nowrap;
+}
+
+.amount__value {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+  text-align: right;
+  justify-content: center;
+}
+
+.modal__buttonGroup {
+  display: flex;
+  gap: 40px;
+}
+
+.modal__buttonCancel {
+  background: none;
+  border: 1px solid #2ef2ff;
+}
+
+.modal__timeStatus{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+  width: 100%;
+  gap: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #243474;
+  border-left: 1px solid #243474;
+  border-right: 1px solid #243474;
+  border-bottom: 1px solid #243474;
+  border-radius: 40px;
+}
+
+.timestatus__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timestatus__timeText {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  text-align: right;
+}
+
+.timestatus__statusText {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  text-align: left;
+}
+
+.timestatus__dateTime {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+  display: flex;
+}
+
+.timestatus__dateTimeCanceled {
+  display: visible;
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #2ef2ff;
+}
+
+.timestatus__dateTimeCanceledDone {
+  display: none;
+}
+
+.timestatus__ExchangeDefault {
+  display: none;
+}
+
+.timestatus__ExchangeDone {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.timestatus__line {
+  content: "";
+  height: 54px;
+  width: 1px;
+  background-color: #2ef2ff;
+}
+
+.modal__attention {
+  padding: 0px 86px;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c8ea80;
+  text-align: center;
+}
+
+.modal__buttonRefresh {
+  background: none;
+  padding: 13px 26px 13px 26px;
+  border: 1px solid #2ef2ff;
+  border-radius: 14px;
+  font-family: "Popins";
+  font-weight: 700;
+  font-size: 16px;
+  color: #2ef2ff;
+  cursor: pointer;
+}
+
+.modal__bottomLine {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: #2ef2ff;
+}
+
+.wallet__images {
+  display: flex;
+  gap: 10px;
+}
+
+.wallet__imagesDone {
+  justify-content: center;
+}
+
+.wallet__imagesDone .wallet__imagesLeft {
+  display: none;
+}
+
+.loader {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.loaderDone{
+  display: none;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #2EF2FF;
+  border-radius: 50%;
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 431px) {
+  .timestatus__ExchangeDone{
+    margin-top: 15px;
+  }
+  .modal__timeStatus{
+    gap: 10px;
+    max-width: 382px;
+    align-items: normal;
+}
+  .timestatus__wrapper{
+    align-items: center;
+    max-width: 160px;
+    gap: 10px;
+  }
+  .modal__window {
+    min-width: 400px;
+    width: 100%;
+  }
+  .timestatus__dateTime {
+    text-align: center;
+  }
+  .amount__text{
+    gap: 33px;
+  }
+  .timestatus__statusText{
+    white-space: nowrap;
+  }
+  .timestatus__dateTimeCanceled{
+    margin-top: 10px;
+  }
+}

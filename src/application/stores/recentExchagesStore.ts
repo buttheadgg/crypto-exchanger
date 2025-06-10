@@ -29,7 +29,6 @@ class RecentExchangesStore {
             this.exchangesData = data;
             this.loading = false;
         } catch {
-            console.log("Failed to fetch location data");
         }
     }
 
@@ -50,7 +49,6 @@ class RecentExchangesStore {
             this.diagramData = data;
             this.loading = false;
         } catch {
-            console.log("Failed to fetch location data");
         }
     }
 

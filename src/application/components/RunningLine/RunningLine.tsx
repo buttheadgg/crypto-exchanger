@@ -60,9 +60,7 @@ const RunningLIne = () => {
         return updatedCoinData;
       });
 
-      console.log("Обновлённые данные:", data);
     } catch (error) {
-      console.error("Ошибка при выполнении fetch-запроса:", error);
     }
   };
 

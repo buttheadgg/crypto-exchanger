@@ -37,7 +37,6 @@ class PoolsStore {
     makeAutoObservable(this);
   }
 
-
   async fetchFormData() {
     this.isLoading = true;
     this.error = null;
@@ -55,7 +54,6 @@ class PoolsStore {
       }
 
       const data: Pools = await response.json();
-      console.log(data);
       this.formData = data;
     } catch (error) {
       this.error = "error message";

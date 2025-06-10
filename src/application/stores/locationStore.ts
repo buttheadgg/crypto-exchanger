@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { LocationData } from "../components/types/types";
+import { LocationData } from "../types/types";
 import formStore from "./formStore";
 
 class LocationStore {
@@ -17,12 +17,14 @@ class LocationStore {
   async fetchLocationData() {
     this.error = null;
     try {
-      const response = await window.fetch(
-        "https://alfa-crypto.com/api/v1/exchange/cities"
-      );
-
-      const data: LocationData = await response.json();
-
+      // Вместо fetch-а возвращаем статичный объект
+      const data: LocationData = {
+        Russia: {
+          Moscow: "Moscow",
+          "Saint-Petersburg": "Saint-Petersburg",
+        },
+      };
+      console.log("Location data fetched (static):", data);
       runInAction(() => {
         this.locationData = data;
       });
@@ -49,8 +51,8 @@ class LocationStore {
     const cityId = this.findCityId(this.selectedCountry, city);
     formStore.updateField("city", city);
     formStore.updateField("cityId", cityId);
-   formStore.updateForm("cityId", cityId);
-   formStore.updateFormReceive("cityId", cityId);
+    formStore.updateForm("cityId", cityId);
+    formStore.updateFormReceive("cityId", cityId);
   }
 
   findCityId(country: string, city: string): string {
@@ -70,7 +72,7 @@ class LocationStore {
     if (Object.keys(this.locationData).length === 0) {
       await this.fetchLocationData();
     }
-    
+
     const countries = Object.keys(this.locationData);
     if (countries.length > 0) {
       this.setCountry(countries[0]);

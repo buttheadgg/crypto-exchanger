@@ -43,7 +43,7 @@ class PoolsStore {
 
     try {
       const response = await fetch(
-        "https://alfa-crypto.com/api/v1/pool/currencies",
+        "https://obmen.vip/api/v1/pool/currencies",
         {
           method: "GET",
         }
@@ -85,7 +85,7 @@ class PoolsStore {
       !this.formDataPools.amount ||
       isNaN(parseFloat(this.formDataPools.amount)) ||
       parseFloat(this.formDataPools.amount) <
-        parseFloat(this.formDataPools.minValue) ||
+      parseFloat(this.formDataPools.minValue) ||
       parseFloat(this.formDataPools.amount) === 0
     ) {
       newInvalidInputs.amount = true;

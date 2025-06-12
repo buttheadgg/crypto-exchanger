@@ -16,7 +16,7 @@ class RecentExchangesStore {
         this.loading = true;
         try {
             const response = await window.fetch(
-                "https://alfa-crypto.com/api/v1/exchange/last-transactions",
+                "https://obmen.vip/api/v1/exchange/last-transactions",
                 {
                     method: "GET",
                     headers: {
@@ -36,7 +36,7 @@ class RecentExchangesStore {
         this.loading = true;
         try {
             const response = await window.fetch(
-                "https://alfa-crypto.com/api/v1/exchange/diagram-data",
+                "https://obmen.vip/api/v1/exchange/diagram-data",
                 {
                     method: "GET",
                     headers: {

@@ -29,7 +29,7 @@ const FormModalWindow: FC = observer(() => {
       scrollToTop();
       await formStore.updateField("isPayd", "yes");
       try {
-        const res = await fetch("https://alfa-crypto.com/api/v1/exchange/newpayd", {
+        const res = await fetch("https://obmen.vip/api/v1/exchange/newpayd", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

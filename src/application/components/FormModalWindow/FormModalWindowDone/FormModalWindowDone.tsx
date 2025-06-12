@@ -9,7 +9,7 @@ const FormModalWindowDone = () => {
   const handleStatusCheck = async () => {
     try {
       const res = await fetch(
-        "https://alfa-crypto.com/api/v1/exchange/newcheckPayd",
+        "https://obmen.vip/api/v1/exchange/newcheckPayd",
         {
           method: "POST",
           headers: {
@@ -95,16 +95,16 @@ const FormModalWindowDone = () => {
           </div>
           <div
             className={`${isExchanged
-                ? styles.timestatus__dateTimeCanceledDone
-                : styles.timestatus__dateTimeCanceled
+              ? styles.timestatus__dateTimeCanceledDone
+              : styles.timestatus__dateTimeCanceled
               }`}
           >
             In proccess
           </div>
           <div
             className={`${isExchanged
-                ? styles.timestatus__ExchangeDone
-                : styles.timestatus__ExchangeDefault
+              ? styles.timestatus__ExchangeDone
+              : styles.timestatus__ExchangeDefault
               }`}
           >
             Done

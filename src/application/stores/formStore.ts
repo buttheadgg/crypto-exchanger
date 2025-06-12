@@ -75,7 +75,7 @@ class FormStore {
   updateField(name: string, value: string | boolean) {
     this.formData[name] = value;
   }
-  
+
   updateForm(name: string, value: string | boolean) {
     this.formCourse[name] = value;
   }
@@ -106,13 +106,13 @@ class FormStore {
     }
   }
 
-  async getCourse() { 
-    if (this.formCourse.direction == "crypto-bank" || this.formCourse.direction == "bank-crypto" || this.formCourse.direction == "crypto-crypto"  ){
-      this.updateForm("cityId","");
+  async getCourse() {
+    if (this.formCourse.direction == "crypto-bank" || this.formCourse.direction == "bank-crypto" || this.formCourse.direction == "crypto-crypto") {
+      this.updateForm("cityId", "");
     }
-    this.setIsLoading(true); 
+    this.setIsLoading(true);
     try {
-      const res = await fetch("https://alfa-crypto.com/api/v1/exchange/get_rate", {
+      const res = await fetch("https://obmen.vip/api/v1/exchange/get_rate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,12 +135,12 @@ class FormStore {
   }
 
   async getCourseReceive() {
-    if (this.formCourseReceive.direction == "crypto-bank" || this.formCourseReceive.direction == "bank-crypto" || this.formCourseReceive.direction == "crypto-crypto" ){
-      this.updateFormReceive("cityId","");
+    if (this.formCourseReceive.direction == "crypto-bank" || this.formCourseReceive.direction == "bank-crypto" || this.formCourseReceive.direction == "crypto-crypto") {
+      this.updateFormReceive("cityId", "");
     }
     this.setIsLoading(true);
     try {
-      const res = await fetch("https://alfa-crypto.com/api/v1/exchange/get_rate_receive", {
+      const res = await fetch("https://obmen.vip/api/v1/exchange/get_rate_receive", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -203,21 +203,20 @@ class FormStore {
       this.validatePaySelectMax = true;
       this.validatePaySelectMin = false;
     } else if (
-      parseFloat(this.formData.paySelect) === 0 || 
+      parseFloat(this.formData.paySelect) === 0 ||
       parseFloat(this.formData.paySelect) < Number(this.formConvert.l_min)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMin = true;
       this.validatePaySelectMax = false;
-    }else if (
+    } else if (
       !this.formData.paySelect ||
       isNaN(parseFloat(this.formData.paySelect))
-    ){
+    ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMin = false;
       this.validatePaySelectMax = false;
-    }else
-    {
+    } else {
       this.validatePaySelectMin = false;
       this.validatePaySelectMax = false;
     }
@@ -228,14 +227,14 @@ class FormStore {
       newInvalidInputs.receiveSelect = true;
       this.validateReceiveSelectMax = true;
       this.validateReceiveSelectMin = false;
-    }else if (
+    } else if (
       parseFloat(this.formData.receiveSelect) < Number(this.formConvert.r_min) ||
       parseFloat(this.formData.receiveSelect) === 0
-    ){
+    ) {
       newInvalidInputs.receiveSelect = true;
       this.validateReceiveSelectMax = false;
       this.validateReceiveSelectMin = true;
-    }else{
+    } else {
       this.validateReceiveSelectMax = false;
       this.validateReceiveSelectMin = false;
     }

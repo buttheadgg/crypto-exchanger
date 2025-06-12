@@ -20,8 +20,8 @@ class LocationStore {
       // Вместо fetch-а возвращаем статичный объект
       const data: LocationData = {
         Russia: {
-          Moscow: "Moscow",
-          "Saint-Petersburg": "Saint-Petersburg",
+          Moscow: "1",
+          "Saint-Petersburg": "2",
         },
       };
       console.log("Location data fetched (static):", data);

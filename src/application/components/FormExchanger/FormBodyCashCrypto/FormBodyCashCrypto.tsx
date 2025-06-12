@@ -34,12 +34,29 @@ const FormBodyCashCrypto: React.FC = () => {
   };
 
   const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
+    const value = event.target.value; // "Moscow" или "Saint-Petersburg"
     const name = event.target.name;
+
     setCity(value);
-    formStore.updateField(name, value);
+
+    // Определяем cityId по названию
+    let cityId = "";
+    if (value === "Moscow") {
+      cityId = "1";
+    } else if (value === "Saint-Petersburg") {
+      cityId = "2";
+    }
+
+    // Обновляем сторы
+    formStore.updateField(name, value); // name = "city"
     formStore.updateForm(name, value);
     formStore.updateFormReceive(name, value);
+
+    // Отдельно передаём cityId
+    formStore.updateField("cityId", cityId);
+    formStore.updateForm("cityId", cityId);
+    formStore.updateFormReceive("cityId", cityId);
+
     formStore.getCourse();
     formStore.getCourseReceive();
   };

@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { ExchangeResponse } from "../components/types/types";
 
 class FormStore {
   formData: { [key: string]: any } = {
@@ -11,7 +12,7 @@ class FormStore {
     country: "",
     countryId: "",
     city: "",
-    cityId: "",
+    cityId: "1",
     name: "",
     surname: "",
     phone: "",
@@ -21,7 +22,7 @@ class FormStore {
     btcWalletAddress: "",
     rememberData: "",
     agreeToRules: "",
-    direction: "crypto-crypto",
+    direction: "crypto-cash",
     changer_id: "1071",
     isPayd: "no",
     transactionId: "",
@@ -34,8 +35,8 @@ class FormStore {
     receive: "",
     receiveId: "10",
     receiveValue: "",
-    cityId: " ",
-    direction: "crypto-crypto",
+    cityId: "1",
+    direction: "crypto-cash",
   };
   formCourseReceive: { [key: string]: any } = {
     pay: "",
@@ -44,18 +45,25 @@ class FormStore {
     receive: "",
     receiveId: "10",
     receiveValue: "",
-    cityId: "",
-    direction: "crypto-crypto",
+    cityId: "1",
+    direction: "cash-crypto",
   };
-  formConvert: { [key: string]: any } = {};
+  formConvert: ExchangeResponse = {
+    rate_origin: "0",
+    rate_format: "0",
+    exchangers: {
+      exchanger_main: {} as any,
+      exchanger_second: {} as any,
+    },
+  };
   finalData: { [key: string]: any } = {};
   receiveMin: string = "";
   invalidInputs: { [key: string]: boolean } = {};
   activeComponent: string = "crypto-crypto";
   dataValid: boolean | undefined = false;
   isPaid: Number | undefined = undefined;
-  newCourse = 0;
-  minReserve = 0;
+  newCourse = "0";
+  minReserve = "0";
   isLoading: boolean = false;
   isValidate: boolean | null = null;
   captchaToken: string | null = null;
@@ -88,12 +96,18 @@ class FormStore {
   }
 
   updateFormConvert(newData: { [key: string]: any }) {
-    this.formConvert = newData;
+    this.formConvert = {
+      rate_origin: newData.rate_origin ?? 0,
+      rate_format: newData.rate_format ?? 0,
+      exchangers: newData.exchangers ?? {
+        exchanger_main: {} as any,
+        exchanger_second: {} as any,
+      },
+    };
     if (newData.exchangers) {
       this.formData.exchangers = newData.exchangers;
     }
   }
-
 
   updateFinalData(name: string, value: string | boolean | Record<string, any>) {
     if (typeof value === "object" && value !== null) {
@@ -107,12 +121,16 @@ class FormStore {
   }
 
   async getCourse() {
-    if (this.formCourse.direction == "crypto-bank" || this.formCourse.direction == "bank-crypto" || this.formCourse.direction == "crypto-crypto") {
+    if (
+      this.formCourse.direction == "crypto-bank" ||
+      this.formCourse.direction == "bank-crypto" ||
+      this.formCourse.direction == "crypto-crypto"
+    ) {
       this.updateForm("cityId", "");
     }
     this.setIsLoading(true);
     try {
-      const res = await fetch("https://obmen.vip/api/v1/exchange/get_rate", {
+      const res = await fetch("https://obmen.vip/api/v1/exchange/rate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -122,10 +140,11 @@ class FormStore {
       const result = await res.json();
       this.formConvert = result;
       this.newCourse = this.formConvert.rate_format;
-      this.formCourseReceive.receiveSelect = this.newCourse * this.formCourse.payValue;
-      this.formData.receiveSelect = this.newCourse * this.formCourse.payValue;
-      this.formData.receiveSelect = String(this.formData.receiveSelect)
-      this.updateFormConvert(this.formConvert)
+      this.formCourseReceive.receiveSelect =
+      Number(this.newCourse) * Number(this.formCourse.payValue);
+      this.formData.receiveSelect = Number(this.newCourse) * Number(this.formCourse.payValue);
+      this.formData.receiveSelect = String(this.formData.receiveSelect);
+      this.updateFormConvert(this.formConvert);
       this.setHandleChange();
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
@@ -135,23 +154,32 @@ class FormStore {
   }
 
   async getCourseReceive() {
-    if (this.formCourseReceive.direction == "crypto-bank" || this.formCourseReceive.direction == "bank-crypto" || this.formCourseReceive.direction == "crypto-crypto") {
+    if (
+      this.formCourseReceive.direction == "crypto-bank" ||
+      this.formCourseReceive.direction == "bank-crypto" ||
+      this.formCourseReceive.direction == "crypto-crypto"
+    ) {
       this.updateFormReceive("cityId", "");
     }
     this.setIsLoading(true);
     try {
-      const res = await fetch("https://obmen.vip/api/v1/exchange/get_rate_receive", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formStore.formCourseReceive),
-      });
+      const res = await fetch(
+        "https://obmen.vip/api/v1/exchange/rate_receive",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formStore.formCourseReceive),
+        }
+      );
       const result = await res.json();
       this.formConvert = result;
       this.newCourse = this.formConvert.rate_format;
-      this.formCourse.paySelect = this.newCourse * this.formCourseReceive.receiveValue;
-      this.formData.paySelect = this.newCourse * this.formCourseReceive.receiveValue;
+      this.formCourse.paySelect =
+        Number(this.newCourse) * Number(this.formCourseReceive.receiveValue);
+      this.formData.paySelect =
+        Number(this.newCourse) * Number(this.formCourseReceive.receiveValue);
       this.setHandleChange();
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
@@ -192,19 +220,21 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if (this.captchaToken == null) {
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
-      parseFloat(this.formData.paySelect) > Number(this.formConvert.l_max)
+      parseFloat(this.formData.paySelect) >
+      Number(this.formConvert.exchangers.exchanger_main.l_max)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMax = true;
       this.validatePaySelectMin = false;
     } else if (
       parseFloat(this.formData.paySelect) === 0 ||
-      parseFloat(this.formData.paySelect) < Number(this.formConvert.l_min)
+      parseFloat(this.formData.paySelect) <
+        Number(this.formConvert.exchangers.exchanger_main.l_min)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMin = true;
@@ -222,13 +252,15 @@ class FormStore {
     }
 
     if (
-      parseFloat(this.formCourseReceive.receiveSelect) > Number(this.formConvert.r_max)
+      parseFloat(this.formCourseReceive.receiveSelect) >
+      Number(this.formConvert.exchangers.exchanger_main.r_max)
     ) {
       newInvalidInputs.receiveSelect = true;
       this.validateReceiveSelectMax = true;
       this.validateReceiveSelectMin = false;
     } else if (
-      parseFloat(this.formData.receiveSelect) < Number(this.formConvert.r_min) ||
+      parseFloat(this.formData.receiveSelect) <
+        Number(this.formConvert.exchangers.exchanger_main.r_min) ||
       parseFloat(this.formData.receiveSelect) === 0
     ) {
       newInvalidInputs.receiveSelect = true;

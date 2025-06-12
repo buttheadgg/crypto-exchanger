@@ -76,7 +76,7 @@ const FormExchanger: FC = observer(() => {
     console.log("Отправляю на бек", formStore.formData);
     try {
       const res = await fetch(
-        "https://alfa-crypto.com/api/v1/exchange/confirmation",
+        "https://obmen.vip/api/v1/exchange/confirmation",
         {
           method: "POST",
           headers: {
@@ -379,9 +379,9 @@ const FormExchanger: FC = observer(() => {
                     1 {jsonData[selectedPay]?.code} ={" "}
                     {formStore.isLoading
                       ? "Loading"
-                      : !formStore.newCourse || formStore.newCourse == 0
+                      : !formStore.newCourse || Number(formStore.newCourse) === 0
                       ? "There is no exchange rate"
-                      : parseFloat(formStore.formConvert.xxx_rate).toFixed(
+                      : parseFloat(formStore.formConvert.rate_format).toFixed(
                           8
                         )}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
@@ -399,7 +399,10 @@ const FormExchanger: FC = observer(() => {
                       min.:{" "}
                       {formStore.isLoading
                         ? "Loading"
-                        : parseFloat(formStore.formConvert.l_min)
+                        : parseFloat(
+                            formStore.formConvert.exchangers.exchanger_main
+                              .l_min
+                          )
                             .toFixed(5)
                             .replace(/\.?0+$/, "")}{" "}
                       {jsonData[selectedPay]?.code}
@@ -414,7 +417,10 @@ const FormExchanger: FC = observer(() => {
                       max.:{" "}
                       {formStore.isLoading
                         ? "Loading"
-                        : parseFloat(formStore.formConvert.l_max)
+                        : parseFloat(
+                            formStore.formConvert.exchangers.exchanger_main
+                              .l_max
+                          )
                             .toFixed(5)
                             .replace(/\.?0+$/, "")}{" "}
                       {jsonData[selectedPay]?.code}
@@ -431,7 +437,9 @@ const FormExchanger: FC = observer(() => {
                     min.:{" "}
                     {formStore.isLoading
                       ? "Loading"
-                      : parseFloat(formStore.formConvert.l_min)
+                      : parseFloat(
+                          formStore.formConvert.exchangers.exchanger_main.l_min
+                        )
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
@@ -447,7 +455,9 @@ const FormExchanger: FC = observer(() => {
                     max.:{" "}
                     {formStore.isLoading
                       ? "Loading"
-                      : parseFloat(formStore.formConvert.l_max)
+                      : parseFloat(
+                          formStore.formConvert.exchangers.exchanger_main.l_max
+                        )
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
@@ -522,9 +532,10 @@ const FormExchanger: FC = observer(() => {
                       max.:{" "}
                       {formStore.isLoading
                         ? "Loading"
-                        : parseFloat(formStore.formConvert.r_max).toFixed(
-                            5
-                          )}{" "}
+                        : parseFloat(
+                            formStore.formConvert.exchangers.exchanger_main
+                              .r_max
+                          ).toFixed(5)}{" "}
                       {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                     </div>
                   </div>
@@ -539,9 +550,10 @@ const FormExchanger: FC = observer(() => {
                       min.:{" "}
                       {formStore.isLoading
                         ? "Loading"
-                        : parseFloat(formStore.formConvert.r_min).toFixed(
-                            5
-                          )}{" "}
+                        : parseFloat(
+                            formStore.formConvert.exchangers.exchanger_main
+                              .r_min
+                          ).toFixed(5)}{" "}
                       {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                     </div>
                   </div>
@@ -557,7 +569,9 @@ const FormExchanger: FC = observer(() => {
                   min.:{" "}
                   {formStore.isLoading
                     ? "Loading"
-                    : parseFloat(formStore.formConvert.r_min).toFixed(5)}{" "}
+                    : parseFloat(
+                        formStore.formConvert.exchangers.exchanger_main.r_min
+                      ).toFixed(5)}{" "}
                   {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
                 <div
@@ -571,7 +585,9 @@ const FormExchanger: FC = observer(() => {
                   max.:{" "}
                   {formStore.isLoading
                     ? "Loading"
-                    : parseFloat(formStore.formConvert.r_max).toFixed(5)}{" "}
+                    : parseFloat(
+                        formStore.formConvert.exchangers.exchanger_main.r_max
+                      ).toFixed(5)}{" "}
                   {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
               </div>

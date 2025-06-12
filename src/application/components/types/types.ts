@@ -45,13 +45,12 @@ export interface formDataInterface {
   agreeToRules?: boolean;
 }
 
-export interface City {
-  [city: string]: string;
+export interface CityInfo {
+  id: string;
+  name: string; // "Москва" или "Санкт-Петербург"
 }
 
-export interface LocationData {
-  [country: string]: City;
-}
+export type LocationData = CityInfo[];
 
 export interface Period {
   period: string;
@@ -111,4 +110,27 @@ declare global {
   interface Window {
     ethereum?: EthereumProvider;
   }
+}
+
+
+export interface Exchanger {
+  from_cur_code: string;
+  to_cur_code: string;
+  max_reserve: string; // можно заменить на number, если предполагается числовое использование
+  changer_id: string;
+  rate: string;
+  reserve: string;
+  l_min: string;
+  l_max: string;
+  r_min: string;
+  r_max: string;
+}
+
+export interface ExchangeResponse {
+  rate_origin: string;
+  rate_format: string;
+  exchangers: {
+    exchanger_main: Exchanger;
+    exchanger_second: Exchanger;
+  };
 }

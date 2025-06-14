@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, useEffect, useMemo, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import styles from "./FormBodyCashCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
@@ -7,6 +14,7 @@ import { observer } from "mobx-react-lite";
 import locationStore from "../../../stores/locationStore";
 import { LocationData } from "../../types/types";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Context } from "../../../..";
 
 const FormBodyCashCrypto: React.FC = () => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
@@ -16,6 +24,8 @@ const FormBodyCashCrypto: React.FC = () => {
     formStore.setCaptchaToken(token);
     console.log("CAPTCHA token:", token);
   };
+
+  const { userStore } = useContext(Context);
 
   useEffect(() => {
     locationStore.initializeDefaults();
@@ -150,18 +160,6 @@ const FormBodyCashCrypto: React.FC = () => {
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
-              <div className={styles.remember__data}>
-                <input
-                  type="checkbox"
-                  className={styles.form__checkbox}
-                  id="checkbox1"
-                  name="rememberData"
-                  onChange={handleChange}
-                />
-                <div className={styles.form__checkboxText}>
-                  Do not remember data
-                </div>
-              </div>
               <div className={styles.agree__rules}>
                 <input
                   type="checkbox"
@@ -183,7 +181,7 @@ const FormBodyCashCrypto: React.FC = () => {
       </div>
       <div className={styles.form__reCapcha}>
         <ReCAPTCHA
-          sitekey="6LffE8IqAAAAAM3RixTIrXWK--794V01rKbaJCio"
+          sitekey="6Ldks2ArAAAAAMuyPWUlOSaDgkC2NCL2nUieTwjs"
           onChange={handleCaptchaChange}
           theme="light"
         />

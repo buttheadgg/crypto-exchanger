@@ -142,13 +142,6 @@ const FormModalWindow: FC = observer(() => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.modal__attention}>
-        Attention! Click on the "Refresh page" button if you want to activate
-        the automatic page update. The page will be updated every 30 seconds
-      </div>
-      <button className={styles.modal__buttonRefresh} onClick={handleReload}>
-        Refresh page
-      </button> */}
       <div className={styles.modal__bottomLine}></div>
     </div>
   );

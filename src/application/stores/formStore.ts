@@ -59,7 +59,7 @@ class FormStore {
   finalData: { [key: string]: any } = {};
   receiveMin: string = "";
   invalidInputs: { [key: string]: boolean } = {};
-  activeComponent: string = "crypto-crypto";
+  activeComponent: string = "crypto-cash";
   dataValid: boolean | undefined = false;
   isPaid: Number | undefined = undefined;
   newCourse = "0";

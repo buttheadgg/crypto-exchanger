@@ -11,7 +11,6 @@ import formStore from "../../stores/formStore";
 import { JsonData } from "../types/types";
 import { observer } from "mobx-react-lite";
 import FormBodyCryptoCrypto from "./FormBodyCryptoCrypto/FormBodyCryptoCrypto";
-import poolsStore from "../../stores/poolsStore";
 
 const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
@@ -24,7 +23,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${PUBLIC_ICON}Cash.svg`,
+          icon: `${PUBLIC_ICON}ruble.png`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -55,7 +54,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Cash RUB",
-      icon: `${PUBLIC_ICON}Cash.svg`,
+      icon: `${PUBLIC_ICON}ruble.png`,
       id: "91",
       min: "1",
       max: "100",
@@ -307,7 +306,6 @@ const FormExchanger: FC = observer(() => {
       console.log("Полученный курс", formStore.formConvert);
       formStore.setDataValid(true);
       formStore.setIsPaid(0);
-      poolsStore.setIsSubscribe(false);
       sendData();
       scrollToTop();
     } else {
@@ -379,7 +377,8 @@ const FormExchanger: FC = observer(() => {
                     1 {jsonData[selectedPay]?.code} ={" "}
                     {formStore.isLoading
                       ? "Loading"
-                      : !formStore.newCourse || Number(formStore.newCourse) === 0
+                      : !formStore.newCourse ||
+                        Number(formStore.newCourse) === 0
                       ? "There is no exchange rate"
                       : parseFloat(formStore.formConvert.rate_format).toFixed(
                           8
@@ -596,26 +595,16 @@ const FormExchanger: FC = observer(() => {
         </div>
         <div className={styles.form__body}></div>
         {formStore.activeComponent === "cash-crypto" && <FormBodyCashCrypto />}
-        {formStore.activeComponent === "bank-crypto" && <FormBodyBankCrypto />}
-        {formStore.activeComponent === "crypto-bank" && <FormBodyCryprtoBank />}
+        {/* {formStore.activeComponent === "bank-crypto" && <FormBodyBankCrypto />}
+        {formStore.activeComponent === "crypto-bank" && <FormBodyCryprtoBank />} */}
         {formStore.activeComponent === "crypto-cash" && <FormBodyCryptoCash />}
-        {formStore.activeComponent === "crypto-crypto" && (
+        {/* {formStore.activeComponent === "crypto-crypto" && (
           <FormBodyCryptoCrypto />
-        )}
+        )} */}
       </div>
       <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE
       </MyButton>
-      <div
-        className={`${
-          formStore.activeComponent === "cashCrypto" &&
-          formStore.invalidInputs.paySelect
-            ? styles.form__formBottomText
-            : styles.form__formBottomTextNone
-        }`}
-      >
-        The amount of cash must be at least $ 150,00
-      </div>
       <div className={styles.form__bottomLine}>
         <div className={styles.form__externalLine}>
           <div className={styles.form__externalInsideLine}></div>

@@ -127,18 +127,7 @@ const FormBodyCryprtoBank: FC = ({}) => {
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
-              <div className={styles.remember__data}>
-                <input
-                  type="checkbox"
-                  className={styles.form__checkbox}
-                  id="checkbox1"
-                  name="rememberData"
-                  onChange={handleChange}
-                />
-                <div className={styles.form__checkboxText}>
-                  Do not remember data
-                </div>
-              </div>
+
               <div className={styles.agree__rules}>
                 <input
                   type="checkbox"
@@ -160,7 +149,7 @@ const FormBodyCryprtoBank: FC = ({}) => {
       </div>
       <div className={styles.form__reCapcha}>
         <ReCAPTCHA
-          sitekey="6LffE8IqAAAAAM3RixTIrXWK--794V01rKbaJCio"
+          sitekey="6Ldks2ArAAAAAMuyPWUlOSaDgkC2NCL2nUieTwjs"
           onChange={handleCaptchaChange}
           theme="light"
         />

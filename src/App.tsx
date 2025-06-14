@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "./App.module.scss";
 import "./application/styles/global.scss";
 import RunningLine from "./application/components/RunningLine/RunningLine";
@@ -8,12 +8,30 @@ import ModalWindow from "./application/components/ModalWindow/ModalWindow";
 import formStore from "./application/stores/formStore";
 import FormModalWindowDone from "./application/components/FormModalWindow/FormModalWindowDone/FormModalWindowDone";
 import FormModalWindowСanceled from "./application/components/FormModalWindow/FormModalWindowСanceled/FormModalWindowСanceled";
-import poolsStore from "./application/stores/poolsStore";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./application/routes/AppRoutes";
+import { Context } from "./index";
 
 const App = () => {
+  const { user } = useContext(Context);
+    const [loading, setLoading] = useState(true);
   let modalContent;
+
+    useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        user.setUser(true);
+        user.setIsAuth(true);
+      } catch (error) {
+        console.log("check failed", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
 
   switch (formStore.isPaid) {
     case 1:
@@ -29,7 +47,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <RunningLine />
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
         <AppRoutes />

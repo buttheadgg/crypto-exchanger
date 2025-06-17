@@ -164,7 +164,7 @@ class FormStore {
     this.setIsLoading(true);
     try {
       const res = await fetch(
-        "https://obmen.vip/api/v1/exchange/rate_receive",
+        "https://obmen.vip/api/v1/exchange/rate-receive",
         {
           method: "POST",
           headers: {
@@ -220,9 +220,9 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    // if (this.captchaToken == null) {
-    //   newInvalidInputs.captcha = true;
-    // }
+    if (this.captchaToken == null) {
+      newInvalidInputs.captcha = true;
+    }
 
     if (
       parseFloat(this.formData.paySelect) >

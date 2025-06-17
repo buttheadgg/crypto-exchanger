@@ -37,6 +37,12 @@
   width: 100%;
 }
 
+.button__wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 1177px) {
   .from__wrapper {
     flex-direction: column;

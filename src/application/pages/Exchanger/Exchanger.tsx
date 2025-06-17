@@ -12,6 +12,7 @@ import MetaMaskButton from "../../components/MetaMaskButton/MetaMaskButton";
 import MyButton from "../../components/UI/MyButton/MyButton";
 import { Context } from "../../..";
 import { useNavigate } from "react-router";
+import Header from "../../components/Header/Header";
 
 const Exchanger: FC = observer(() => {
   const navigate = useNavigate();
@@ -34,15 +35,14 @@ const Exchanger: FC = observer(() => {
       <Helmet>
         <title>Exchanger</title>
       </Helmet>
+      <Header />
       <RunningLine />
       {/* <MetaMaskButton /> */}
       <div className={styles.main}>
         <div className={styles.main__wrapper}>
           <div className={styles.from__wrapper}>
             <div ref={formRef}>
-              <div className={styles.from__buttonGroup}>
-                <MyButton onClick={handleLogout}>Exit</MyButton>
-              </div>
+              <div className={styles.from__buttonGroup}></div>
               <FormExchanger />
             </div>
           </div>

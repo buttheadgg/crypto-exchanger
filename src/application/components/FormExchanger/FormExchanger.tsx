@@ -380,7 +380,7 @@ const FormExchanger: FC = observer(() => {
                       : !formStore.newCourse ||
                         Number(formStore.newCourse) === 0
                       ? "There is no exchange rate"
-                      : parseFloat(formStore.formConvert.rate_format).toFixed(
+                      : parseFloat(formStore.formConvert.rate_origin).toFixed(
                           8
                         )}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}

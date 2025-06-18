@@ -32,16 +32,17 @@ const FormBodyCryptoCash: FC = ({}) => {
     formStore.getCourseReceive();
   };
 
-  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+const handleCitySelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     const name = event.target.name;
     setCity(value);
     formStore.updateField(name, value);
-    formStore.updateForm(name, value)
-    formStore.updateFormReceive(name, value)
-    formStore.getCourse();
-    formStore.getCourseReceive();
-  };
+    formStore.updateForm(name, value);
+    formStore.updateFormReceive(name, value);
+     formStore.getCourse();
+    // formStore.getCourseReceive();
+};
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);

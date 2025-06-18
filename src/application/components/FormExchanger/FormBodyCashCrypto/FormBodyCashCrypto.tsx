@@ -67,8 +67,8 @@ const FormBodyCashCrypto: React.FC = () => {
     formStore.updateForm("cityId", cityId);
     formStore.updateFormReceive("cityId", cityId);
 
-    formStore.getCourse();
-    formStore.getCourseReceive();
+     formStore.getCourse();
+    // formStore.getCourseReceive();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

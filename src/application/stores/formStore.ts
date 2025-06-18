@@ -141,8 +141,9 @@ class FormStore {
       this.formConvert = result;
       this.newCourse = this.formConvert.rate_format;
       this.formCourseReceive.receiveSelect =
-      Number(this.newCourse) * Number(this.formCourse.payValue);
-      this.formData.receiveSelect = Number(this.newCourse) * Number(this.formCourse.payValue);
+        Number(this.newCourse) * Number(this.formCourse.payValue);
+      this.formData.receiveSelect =
+        Number(this.newCourse) * Number(this.formCourse.payValue);
       this.formData.receiveSelect = String(this.formData.receiveSelect);
       this.updateFormConvert(this.formConvert);
       this.setHandleChange();
@@ -180,6 +181,7 @@ class FormStore {
         Number(this.newCourse) * Number(this.formCourseReceive.receiveValue);
       this.formData.paySelect =
         Number(this.newCourse) * Number(this.formCourseReceive.receiveValue);
+      this.updateFormConvert(this.formConvert);
       this.setHandleChange();
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
@@ -220,9 +222,9 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if (this.captchaToken == null) {
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
       parseFloat(this.formData.paySelect) >

@@ -39,8 +39,8 @@ const FormBodyCryprtoBank: FC = ({}) => {
     formStore.updateField(name, value);
     formStore.updateForm(name, value);
     formStore.updateFormReceive(name, value);
-    formStore.getCourse();
-    formStore.getCourseReceive();
+     formStore.getCourse();
+    // formStore.getCourseReceive();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
